@@ -1,0 +1,50 @@
+APPLICATION BENCHMARKS
+
+Un benchmark è un workload.
+Workload utilizzato per comparare più sistemi.
+
+Il processo di confronto delle performance tra 2 o più sistemi, mediante una metrica, è chiamato BENCHMARKING
+
+Benchmark deve essere :
+    - Rappresentativo
+    - Portabile
+    - Ripetibile
+    - Scalabile
+    - Non-intrusivo
+    - Facile da utilizzare
+    - Facile da comprendere 
+
+
+EXERCISE
+
+We'll use NBody simulation problem :
+    It simulates the evolution of a system of N bodies, under the influence of gravity force. ( Sistema gravitazionale )
+    It is a good benchmark since it stresses :
+        1. The float-point subsystem
+        2. The recursive calls
+
+    Try to compare two systems with the same OS and different processors by using the n body benchmark.
+
+    TIENE MOLTO CONTO DEL NUMERO DEI CORE, GESTIONE DELLO STACK, CAPACITA' FLOATING POINT ( Bisogna testare maggiormente questo )
+    PROVA ANCHE CON COMPILATORI DIVERSI ( clang, gcc )
+
+    IN DOCUMENTAZIONE BISOGNA FORNIRE TUTTE LE CARATTERISTICHE DEL TEST SET ( NO TEORIA ) E LE SCELTE FATTE A RIGUARDO.
+    Processore : GENERAZIONE + SIGLA ( non solo i5 ad esempio )
+HOW TO LAUNCH THE SCRIPT :
+
+    bisogna passare n, il numero di bodies
+
+
+IDEA SUL PLOT : Colleziona un csv così fatto 
+                    N ; Execution_time
+
+                Plottare su Matlab quanto ottenuto, comparare le due curve dei due sistemi. Dovrebbe essere abbastanza easy. 
+
+BISOGNA QUINDI ESEGUIRE IN MANIERA AUTOMATIZZATA LO SCRIPT PER RACCOGLIERE GLI Execution_time ( Magari si può fare in Python )
+RISOLTO : LO SCRIPT BASH SERVE PROPRIO A QUESTO. Cotro suggerisce di fare 10 ripetizioni per ogni N ( Magari prendere il valore medio o la mediana risultante )
+
+Come lanciarlo : bash ./launch_nbody.sh -r 10 -n 10000 
+
+IL PROFESSORE USA WSL PER LA VIRTUALIZZAZIONE LINUX SU WINDOWS.
+IL NUMERO DI CORE PUO' ESSERE SETTATO NEL FILE .wslconfig
+
