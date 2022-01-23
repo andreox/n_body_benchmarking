@@ -48,3 +48,16 @@ Come lanciarlo : bash ./launch_nbody.sh -r 10 -n 10000
 IL PROFESSORE USA WSL PER LA VIRTUALIZZAZIONE LINUX SU WINDOWS.
 IL NUMERO DI CORE PUO' ESSERE SETTATO NEL FILE .wslconfig
 
+ANALISI E CONFRONTO STATISTICO, PASSI :
+
+- Per ogni valore di N, servono M campioni ( medie ) IID ( Indipendenti e Identicamente distribuiti ), usando un r abbastanza piccolo
+  Questi M campioni sono le distribuzioni delle medie campionarie.
+  Per l'indipendenza Cotroneo suggerisce di riavviare ogni volta la macchina. Si può fare anche lanciando più volte le istanze.
+  Con questi M campioni calcolo la Deviazione Standard e uso il teorema del limite centrale per approssimare la Deviazione Standard della popolazione
+  ( gli M campioni ) per quel valore di N scelto inizialmente. Così ti calcoli il numero di ripetizioni necessarie per imporre un certo livello di confidenza
+  ed un certo errore massimo ( c'è formula sulle slides ).
+  In questo modo si ottiene il numero di ripetizioni necessarie per il campione finale.
+  Per i 2 sistemi si ottengono 2 numeri di ripetizioni diversi, bisogna prendere il massimo tra i 2.
+
+  Uso questo r calcolato per ogni N, e sfrutto i valori che escono fuori per fare il paired t test, così sto applicando lo stesso workload
+  a 2 sistemi diversi.
