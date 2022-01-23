@@ -29,5 +29,3 @@ for (( counter=$parameterA; counter>0; counter-- ))
 do
 ./nbodySim $parameterB
 done
-printf "\n"
-
